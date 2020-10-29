@@ -12,18 +12,20 @@
             <mat-grid-list cols="2">
                 <mat-grid-tile>
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1526178613552-2b45c6c302f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                            class="card-img-top" alt="...">
-                            <button type="button" routerLink="" class="btn btn-info" style="margin-top: 30px;">Update</button>
-                            <button type="button" routerLink="" class="btn btn-danger" style="margin-top: 20px;">Delete</button>
+                        <img src={{product.picture}} class="card-img-top" alt="...">
+                        <button type="button" routerLink="" class="btn btn-info"
+                            style="margin-top: 30px;">Update</button>
+                        <button type="button" routerLink="" class="btn btn-danger"
+                            style="margin-top: 20px;">Delete</button>
                     </div>
 
                 </mat-grid-tile>
 
-                <mat-grid-tile> 
+                <mat-grid-tile>
                     <form>
                         <h2>DESCRIPTION</h2>
-                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. </P>
+                        <span>{{product.description}}</span>
+                        <p style="margin-bottom: 20px;">Name : <b>{{product.name}}</b></p>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">QUANTITY</label>
                             <select class="form-control" id="exampleFormControlSelect1">
@@ -44,7 +46,8 @@
                                 <option>Extra Large</option>
                             </select>
                         </div>
-                        <button routerLink="" type="submit" class="btn btn-warning"><i class="material-icons">add_shopping_cart</i></button>
+                        <button routerLink="" type="submit" class="btn btn-warning"><i
+                                class="material-icons">add_shopping_cart</i></button>
                     </form>
                 </mat-grid-tile>
             </mat-grid-list>

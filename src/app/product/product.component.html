@@ -45,7 +45,7 @@
 						<h4>{{productList.name}}</h4>
             <span> R {{productList.price}}</span>
             <div style="float: right;">
-              <a mat-raised-button routerLink="/product/info/" >more info</a>
+              <a mat-raised-button (click)="ViewProduct(productList)" >more info</a>
             </div>
 					</div>
 				</div>
