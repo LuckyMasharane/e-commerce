@@ -15,6 +15,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InformationComponent } from './information/information.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductComponent,
     AddProductComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    InformationComponent
   ],
   imports: [
     BrowserModule,

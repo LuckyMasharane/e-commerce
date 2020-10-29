@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title></title>
+	<title>e-commerce</title>
 </head>
 
 <body>
@@ -43,7 +43,10 @@
 					<img src={{product.picture}} class="card-img-top" alt="...">
 					<div class="card-body">
 						<h4>{{product.name}}</h4>
-						<span> R {{product.price}}</span>
+            <span> R {{product.price}}</span>
+            <div style="float: right;">
+              <a mat-raised-button routerLink="/product/info" >more info</a>
+            </div>
 					</div>
 				</div>
 			</mat-grid-tile>
