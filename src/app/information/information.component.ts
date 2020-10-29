@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-information',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private prod: ProductService) { }
 
   ngOnInit(): void {
+  }
+
+  onclick(){
+    this.prod.deleteProduct
   }
 
 }

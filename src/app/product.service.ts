@@ -37,7 +37,7 @@ export class ProductService {
       this.productList.splice(pro,1);
     }
   }
-  addEmployee(prod: Product) {
+  addProduct(prod: Product) {
     this.productList.push({
       id: this.productList.length + 1 ,
       name: prod.name,
