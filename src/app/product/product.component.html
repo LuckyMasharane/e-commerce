@@ -37,7 +37,7 @@
 		<h2>Top Sellers</h2>
 		<a mat-raised-button routerLink="/add-product" >Add Product</a>
 		<mat-grid-list cols="3">
-			<mat-grid-tile *ngFor="let productList of productList">
+			<mat-grid-tile *ngFor="let productList of productLists">
 
 				<div class="card" style="width: 18rem;">
 					<img src={{productList.picture}} class="card-img-top" alt="...">

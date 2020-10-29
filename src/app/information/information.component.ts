@@ -13,7 +13,7 @@ export class InformationComponent implements OnInit {
   constructor(private prod: ProductService, private router: Router) {
     this.router.getCurrentNavigation().extras.state
     this.product = history.state
-    console.log(this.product);
+    // console.log(this.product);
 
   }
 
