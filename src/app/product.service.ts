@@ -24,4 +24,27 @@ export class ProductService {
   getAllProduct(){
     return this.productList;
   }
+
+  updateProduct(pro: Product) {
+    const index = this.productList.findIndex(c => c.id === pro.id);
+    if ( index  >-1) {
+      this.productList[index] = pro;
+    }
+  }
+  deleteProduct(id: number) {
+    const pro = this.productList.findIndex(c => c.id == id);
+    if (pro >-1) {
+      this.productList.splice(pro,1);
+    }
+  }
+  addEmployee(prod: Product) {
+    this.productList.push({
+      id: this.productList.length + 1 ,
+      name: prod.name,
+      price:prod.price,
+      description: prod.description,
+      picture: prod.picture,
+
+    });
+  }
 }
