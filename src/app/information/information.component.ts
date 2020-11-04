@@ -21,8 +21,8 @@ export class InformationComponent implements OnInit {
 
   }
 
-  onclick() {
-    this.prod.deleteProduct
+  onclick(id) {
+    this.prod.deleteProduct(id)
   }
 
 }
