@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product'
+import { AngularFirestore } from '@angular/fire/firestore'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
 
   productLists: Product[] = [
     { id: 1, picture: "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80", description: "Black round-neck tee with embroidery pocket detail 100% Cotton", price: "145.00", name: "T-shirt" },
@@ -24,6 +25,10 @@ export class ProductService {
   getAllProduct() {
     return this.productLists;
   }
+
+  // getAllProduct() {
+  //   return this.db.collection("product").valueChanges();
+  // }
 
   updateProduct(pro: Product) {
     const index = this.productLists.findIndex(c => c.id === pro.id);
@@ -47,4 +52,23 @@ export class ProductService {
 
     });
   }
+
+  // addProduct(prod: Product) {
+  //   let Id = prod.id + 3;
+  //   this.db.collection("product").doc(Id.toString()).set({
+  //     id: this.productLists.length + 1,
+  //     name: prod.name,
+  //     price: prod.price,
+  //     description: prod.description,
+  //     picture: prod.picture,
+      
+  //   })
+  //     .then(function () {
+  //       console.log("Document successfully written!");
+  //     })
+  //     .catch(function (error) {
+  //       console.error("Error writing document: ", error);
+  //     });
+
+  // }
 }

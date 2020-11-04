@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database'
+import { environment } from '../environments/environment';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -16,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InformationComponent } from './information/information.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { InformationComponent } from './information/information.component';
     AddProductComponent,
     LoginComponent,
     RegisterComponent,
-    InformationComponent
+    InformationComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,9 @@ import { InformationComponent } from './information/information.component';
     MatButtonModule,
     MatGridListModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
 
   ],
   providers: [],

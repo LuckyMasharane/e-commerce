@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
+// import { UpdateComponent } from '../update/update.component';
+// import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-information',
@@ -24,5 +26,15 @@ export class InformationComponent implements OnInit {
   onclick(id) {
     this.prod.deleteProduct(id)
   }
+
+  update(id){
+    this.prod.updateProduct(id);
+  }
+  // updateDialog(id: number) {
+  //   // let dialogRef = this.dialog.open(UpdateDialogComponent);
+  //   const Product = this.prod.getAllProduct().find(c => c.id === id);
+  //   let dialogRef = this.dialog.open(UpdateComponent, { data: Product });
+  //   //dialogRef.afterClosed().subscribe(result => {this.Company_Employees= result})
+  // }
 
 }
