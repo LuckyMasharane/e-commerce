@@ -30,7 +30,7 @@ import { UpdateComponent } from './update/update.component';
     LoginComponent,
     RegisterComponent,
     InformationComponent,
-    UpdateComponent
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,

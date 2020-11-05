@@ -30,6 +30,9 @@ export class InformationComponent implements OnInit {
   update(id){
     this.prod.updateProduct(id);
   }
+  ViewProduct(product){
+    this.router.navigateByUrl('/more-info/update', { state: product});
+  }
   // updateDialog(id: number) {
   //   // let dialogRef = this.dialog.open(UpdateDialogComponent);
   //   const Product = this.prod.getAllProduct().find(c => c.id === id);

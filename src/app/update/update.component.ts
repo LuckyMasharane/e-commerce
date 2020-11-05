@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
-// import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
@@ -12,23 +11,23 @@ import { Router } from '@angular/router';
 export class UpdateComponent implements OnInit {
 
   public contactForm: FormGroup;
-
-  constructor(private _formBuilder: FormBuilder, private prod: ProductService, private router: Router) { }
-
+  product
+  constructor(private _formBuilder: FormBuilder, private prod: ProductService, private router: Router) {
+    this.router.getCurrentNavigation().extras.state
+    this.product = history.state
+   }
 
   ngOnInit(): void {
-    // this.contactForm = this._formBuilder.group({
-    //   id: [this.data.id],
-    //   name: [this.data.name, [Validators.required]],
-    //   price: [this.data.price, [Validators.required]],
-    //   description: [this.data.description, [Validators.required]],
-    //   picture: [this.data.picture, [Validators.required]],
-
-    // })
+    this.contactForm = this._formBuilder.group({
+      id: this.prod.getAllProduct.length + 1,
+      name: "",
+      price: "",
+      description: "",
+      picture: ""
+    });
   }
-  // onSubmit() {
-  //   this.prod.updateProduct(this.contactForm.value);
-
-  // }
+  onSubmit(){
+    this.prod.updateProduct(this.contactForm.value);
+  }
 
 }
