@@ -30,12 +30,14 @@ export class ProductService {
   //   return this.db.collection("product").valueChanges();
   // }
 
+  //local
   updateProduct(pro: Product) {
     const index = this.productLists.findIndex(c => c.id === pro.id);
     if (index > -1) {
       this.productLists[index] = pro;
     }
   }
+  //local
   deleteProduct(id: number) {
     const pro = this.productLists.findIndex(c => c.id == id);
     if (pro > -1) {
@@ -55,10 +57,12 @@ export class ProductService {
     });
   }
 
+
+
   // firebase
 
   // addProduct(prod: Product) {
-  //   let Id = prod.id + 3;
+  //   let Id = Math.floor(Math.random() * 50);;
   //   this.db.collection("product").doc(Id.toString()).set({
   //     id: this.productLists.length + 1,
   //     name: prod.name,
