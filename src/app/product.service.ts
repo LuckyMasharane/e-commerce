@@ -42,6 +42,8 @@ export class ProductService {
       this.productLists.splice(pro, 1);
     }
   }
+
+  // local
   addProduct(prod: Product) {
     this.productLists.push({
       id: this.productLists.length + 1,
@@ -52,6 +54,8 @@ export class ProductService {
 
     });
   }
+
+  // firebase
 
   // addProduct(prod: Product) {
   //   let Id = prod.id + 3;

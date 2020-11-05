@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InformationComponent } from './information/information.component';
 import { UpdateComponent } from './update/update.component';
 
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { UpdateComponent } from './update/update.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    MatCarouselModule.forRoot(),
 
   ],
   providers: [],
