@@ -22,13 +22,10 @@ export class ProductService {
 
   ]
 
+  // local
   getAllProduct() {
     return this.productLists;
   }
-
-  // getAllProduct() {
-  //   return this.db.collection("product").valueChanges();
-  // }
 
   //local
   updateProduct(pro: Product) {
@@ -46,6 +43,7 @@ export class ProductService {
   }
 
   // local
+
   addProduct(prod: Product) {
     this.productLists.push({
       id: this.productLists.length + 1,
@@ -58,11 +56,24 @@ export class ProductService {
   }
 
 
+  // firebase
+
+  // getAllProduct() {
+  //   this.db.collection("product").snapshotChanges().subscribe(result =>{
+  //     result.forEach((doc)=>{
+  //       this.productLists.push(doc.payload.doc.data())
+  //       this.productLists.map(prod =>{
+  //         prod['id'] = doc.payload.doc.id;
+  //       })
+
+  //     });
+  //   })
+  // }
 
   // firebase
 
   // addProduct(prod: Product) {
-  //   let Id = Math.floor(Math.random() * 50);;
+  //   let Id = Math.floor(Math.random() * 50);
   //   this.db.collection("product").doc(Id.toString()).set({
   //     id: this.productLists.length + 1,
   //     name: prod.name,

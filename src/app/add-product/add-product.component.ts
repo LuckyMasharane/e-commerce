@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactForm = this._formBuilder.group({
-      id: this.prod.getAllProduct.length + 1,
+      id: Math.floor(Math.random() * 50),
       name: "",
       price: "",
       description: "",
