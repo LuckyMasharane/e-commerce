@@ -39,5 +39,5 @@ export class InformationComponent implements OnInit {
   //   let dialogRef = this.dialog.open(UpdateComponent, { data: Product });
   //   //dialogRef.afterClosed().subscribe(result => {this.Company_Employees= result})
   // }
-
+  
 }

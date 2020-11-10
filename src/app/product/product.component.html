@@ -14,15 +14,15 @@
     <h2>Top Sellers</h2>
     <a mat-raised-button routerLink="/add-product">Add Product</a>
     <mat-grid-list cols="3">
-      <mat-grid-tile *ngFor="let productList of productLists ">
+      <mat-grid-tile *ngFor="let product of prod_List ">
 
         <div class="card" style="width: 18rem;">
-          <img src={{productList.picture}} class="card-img-top" alt="...">
+          <img src={{product.picture}} class="card-img-top" alt="...">
           <div class="card-body">
-            <h4>{{productList.name}}</h4>
-            <span> R {{productList.price}}</span>
+            <h4>{{product.name}}</h4>
+            <span> R {{product.price}}</span>
             <div style="float: right;">
-              <a mat-raised-button (click)="ViewProduct(productList)">more info</a>
+              <a mat-raised-button (click)="ViewProduct(product)">more info</a>
             </div>
           </div>
         </div>

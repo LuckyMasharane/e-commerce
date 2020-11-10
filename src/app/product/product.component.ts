@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product',
@@ -13,11 +14,12 @@ import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 })
 export class ProductComponent implements OnInit {
 
-  prod_List: Observable<any[]>
+  prod_List: Product[] = []
   constructor(private prod: ProductService, private router: Router, private db:AngularFirestore) { }
 
   ngOnInit(): void {
     // this.productLists()
+    this.getproductLists();
   }
 
   slides = [
@@ -27,12 +29,16 @@ export class ProductComponent implements OnInit {
   ];
 
 
-  // productLists(){
-  //   this.prod_List = this.prod.getAllProduct();
-  // }
+  getproductLists() {
+    return this.prod.getAllProduct().subscribe(res => {
+      this.prod_List = res.map((product) => {
+        return {
+          ...product.payload.doc.data(),
+          id:product.payload.doc.id
 
-  get productLists() {
-    return this.prod.getAllProduct()
+        } as Product
+      })
+    })
   }
 
   ViewProduct(product) {
