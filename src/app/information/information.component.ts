@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from '../product';
 import { ProductService } from '../product.service';
 // import { UpdateComponent } from '../update/update.component';
 // import { MatDialog } from "@angular/material/dialog";
@@ -10,6 +11,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./information.component.css']
 })
 export class InformationComponent implements OnInit {
+  
   product
 
   constructor(private prod: ProductService, private router: Router) {

@@ -26,8 +26,8 @@ export class UpdateComponent implements OnInit {
       picture: ""
     });
   }
-  // onSubmit(){
-  //   this.prod.updateProduct(this.contactForm.value);
-  // }
+  onSubmit(id){
+    this.prod.updateProduct(id);
+  }
 
 }

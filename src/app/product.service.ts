@@ -85,9 +85,9 @@ export class ProductService {
 
   // firebase
 
-  updateProduct(id: number, prod:Product){
-    ;
-    this.db.doc('product/' + id).update(prod);
+  updateProduct(prod:Product){
+    
+    this.db.doc('product/' + prod).update(prod);
 
   }
 

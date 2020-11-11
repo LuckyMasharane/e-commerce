@@ -28,10 +28,10 @@ export class ProductComponent implements OnInit {
     { pic:"https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" }
   ];
 
-
   getproductLists() {
+   
     return this.prod.getAllProduct().subscribe(res => {
-      this.prod_List = res.map((product) => {
+      this.prod_List = res.map(product => {
         return {
           ...product.payload.doc.data(),
           id:product.payload.doc.id
