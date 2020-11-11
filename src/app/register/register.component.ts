@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { User } from '../user';
 
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   user:User
 
-  constructor(private _formBuilder: FormBuilder,private authent: AuthenticationService) { }
+  constructor(private _formBuilder: FormBuilder,private authent: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.contactForm = this._formBuilder.group({
@@ -24,8 +25,9 @@ export class RegisterComponent implements OnInit {
       password: ""
     });
   }
-  
+
   signUp(){
-    this.authent.signUpUser(this.contactForm.value)
+    this.authent.signUpUser(this.contactForm.value);
+    this.router.navigate(['']);
   }
 }
