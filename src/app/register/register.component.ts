@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   public contactForm: FormGroup;
 
   user:User
-
+  email
   constructor(private _formBuilder: FormBuilder,private authent: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,4 +30,5 @@ export class RegisterComponent implements OnInit {
     this.authent.signUpUser(this.contactForm.value);
     this.router.navigate(['']);
   }
+
 }

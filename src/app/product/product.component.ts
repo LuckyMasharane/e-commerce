@@ -35,7 +35,6 @@ export class ProductComponent implements OnInit {
         return {
           ...product.payload.doc.data(),
           id:product.payload.doc.id
-
         } as Product
       })
     })
