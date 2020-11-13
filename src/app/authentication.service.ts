@@ -14,7 +14,7 @@ export class AuthenticationService {
   constructor( private db: AngularFirestore) { }
 
   signUpUser(user){
-    let message:any;
+    let message:"";
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
@@ -24,7 +24,7 @@ export class AuthenticationService {
   }).then( results =>{
     user = results
       if(user){
-        console.log("successfull");
+        console.log("successfully Register");
       }else{
         console.log(message)
       }
@@ -34,7 +34,7 @@ export class AuthenticationService {
 
 signInUser(email,password){
   let user:any;
-  let message:any;
+  let message:"";
   
   firebase.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
     // Handle Errors here.
