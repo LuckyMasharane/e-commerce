@@ -39,7 +39,7 @@ export class ProductComponent implements OnInit {
       })
     })
   }
-
+  
   ViewProduct(product) {
     this.router.navigateByUrl('/product', { state: product });
   }

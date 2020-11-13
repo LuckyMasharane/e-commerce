@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Injectable({
   providedIn: 'root'
@@ -8,32 +9,49 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class AuthenticationService {
   afAuth: any;
 
+  user:any;
+
   constructor( private db: AngularFirestore) { }
 
   signUpUser(user){
+    let message:any;
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    message = errorMessage;
     console.log(errorMessage);
   }).then( results =>{
-    console.log("successfull");
+    user = results
+      if(user){
+        console.log("successfull");
+      }else{
+        console.log(message)
+      }
     
   });
 }
 
 signInUser(email,password){
-  console.log(email);
+  let user:any;
+  let message:any;
   
   firebase.auth().signInWithEmailAndPassword(email, password).catch((error) =>{
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    console.log(errorMessage);
+    message= errorMessage
+    console.log(message);
     // ...
   }).then(result =>{
-    console.log("success");
-    
+    user = result;
+
+    if(user){
+      console.log(user.user.email + " Successfully logged in");
+    }else{
+      console.log(message)
+    }
+    return user.user.email;
   });
 }
 
@@ -57,6 +75,17 @@ resetPassword(email: string) {
 
 forgotPassword(){
   
+}
+
+logout(){
+  firebase.auth().signOut().then(()  =>{
+    // Sign-out successful.
+    console.log("Sign-out successful.");
+    
+  }).catch(function(error) {
+    console.log(error);
+    
+  });
 }
 
 }
