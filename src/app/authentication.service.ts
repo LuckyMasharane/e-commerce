@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from "@angular/fire/auth";
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,21 @@ export class AuthenticationService {
   afAuth: any;
 
   user:any;
+  currentUser:User
+  authState: any = null;
+  constructor( private db: AngularFirestore) { 
 
-  constructor( private db: AngularFirestore) { }
+    this.afAuth.authState.switchMap(auth => {
+      if (auth) {
+        this.currentUser = auth
+        return this.db.collection(`/users/${auth.uid}`)
+      } else return [];
+    })
+    .subscribe(user => {
+        this.currentUser['username'] = user.username
+    });
+    
+  }
 
   signUpUser(user){
     let message:"";
@@ -22,12 +36,19 @@ export class AuthenticationService {
     message = errorMessage;
     console.log(errorMessage);
   }).then( results =>{
-    user = results
-      if(user){
-        console.log("successfully Register");
-      }else{
-        console.log(message)
-      }
+    if(results){
+      console.log("successfully registered");
+      
+      firebase.database().ref('users/' + results.user.uid).set({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email : user.email,
+      });
+      console.log(message);
+    
+    }else{
+     
+    }
     
   });
 }
@@ -63,7 +84,18 @@ signInUser(email,password){
 //   // An error happened.
 // });
 
-removingUser(){}
+// removingUser(){
+//   return this.db.collection("Users").doc(firebase.auth().currentUser.uid).delete()
+// }
+isLoggedIn() {
+  this.afAuth.auth.onAuthStateChanged(auth => {
+    if (auth) {
+      console.log(auth);
+    } else {
+      console.log('User logged out');
+    }
+  });
+}
 
 resetPassword(email: string) {
   const fbAuth = firebase.auth();
@@ -73,9 +105,7 @@ resetPassword(email: string) {
     .catch((error) => console.log(error))
 }
 
-forgotPassword(){
-  
-}
+forgotPassword(){}
 
 logout(){
   firebase.auth().signOut().then(()  =>{
