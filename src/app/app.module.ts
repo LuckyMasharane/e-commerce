@@ -24,6 +24,7 @@ import { UpdateComponent } from './update/update.component';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     InformationComponent,
     UpdateComponent,
     ResetpasswordComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

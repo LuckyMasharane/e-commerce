@@ -19,16 +19,19 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactForm = this._formBuilder.group({
-      firstname: "",
+      firstName: "",
       lastName: "",
       email: "",
       password: ""
     });
+
+    
   }
 
   signUp(){
     this.authent.signUpUser(this.contactForm.value);
-    this.router.navigate(['']);
+    this.authent.getCurrentUser()
+    this.router.navigate(['/home']);
   }
 
 }

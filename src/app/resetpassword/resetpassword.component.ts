@@ -27,7 +27,7 @@ export class ResetpasswordComponent implements OnInit {
     console.log("reset");
 
     this.authenService.resetPassword(this.contactForm.value.email)
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
 }

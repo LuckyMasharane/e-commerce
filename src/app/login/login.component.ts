@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public contactForm: FormGroup;
   email
   password
-
+  loggonInUser
   constructor(private authent: AuthenticationService,private router: Router,private _formBuilder: FormBuilder,) { 
     this.contactForm = this._formBuilder.group({
       email: "",
@@ -22,14 +22,16 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+    this.authent.getCurrentUser()
 
   }
+  
 
   login(){
     console.log(this.contactForm.value.email);
     this.authent.signInUser(this.contactForm.value.email, this.contactForm.value.password)
-    this.router.navigate(['']);
+    this.loggonInUser = this.authent.userInfo
+    this.router.navigate(['/home']);
   }
 
   // resetPassword() {
