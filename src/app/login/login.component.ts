@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   email
   password
   loggonInUser
-  constructor(private authent: AuthenticationService,private router: Router,private _formBuilder: FormBuilder,) { 
+  constructor(private authent: AuthenticationService,private router: Router,private _formBuilder: FormBuilder) { 
     this.contactForm = this._formBuilder.group({
       email: "",
       password: ""

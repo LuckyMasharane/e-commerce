@@ -8,7 +8,9 @@
 <body>
     <div>
         <h2>Profile</h2>
+        
         <div class="container" style="border-style: groove">
+            
             <mat-grid-list cols="2">
                 <mat-grid-tile>
                     <div class="card" style="width: 18rem;">
@@ -17,6 +19,7 @@
                             <li class="list-group-item">Last Name :{{userProfile.lastName}}</li>
                             <li class="list-group-item">Email :  {{userProfile.email}}</li>
                         </ul>
+                        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
                     </div>
 
                 </mat-grid-tile>

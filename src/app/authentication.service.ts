@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   user: User;
   userInfo;
-  use
+
   constructor(private db: AngularFirestore) {
 
     // this.afAuth.authState.switchMap(auth => {
@@ -55,7 +55,6 @@ export class AuthenticationService {
       } else {
 
       }
-
     });
   }
 
@@ -114,7 +113,6 @@ export class AuthenticationService {
   forgotPassword() { }
 
   getCurrentUser() {
-
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var userId = user.uid;
@@ -128,16 +126,12 @@ export class AuthenticationService {
 
       }
     });
-
-
-
   }
 
   logout() {
     firebase.auth().signOut().then(() => {
       // Sign-out successful.
       console.log("Sign-out successful.");
-
     }).catch(function (error) {
       console.log(error);
 

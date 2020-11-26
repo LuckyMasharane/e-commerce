@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore'
 })
 export class ProductService {
 
+  products:any
   constructor(private db: AngularFirestore) { }
 
   productLists: Product[] = [
@@ -59,7 +60,8 @@ export class ProductService {
   // firebase
 
   getAllProduct() {
-    return this.db.collection("product").snapshotChanges()  
+    this.products = this.db.collection("product").snapshotChanges()  
+    return this.products;  
   }
 
   // firebase

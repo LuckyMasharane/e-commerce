@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   }
   logout(){
     console.log("loggin out");
-    this.authenService.logout()
-    this.router.navigateByUrl("")
+    this.authenService.logout();
+    this.router.navigateByUrl("");
   }
 }
